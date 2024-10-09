@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .message {
+            font-size: 24px;
+            color: green;
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+
+
+    <!-- 1.Create a simple webpage with a button that changes the text of a paragraph when clicked.
+    2.Change the background color of a div when the mouse hovers over it.
+    3.Capture keyboard events to display a message when a specific key is pressed.
+     -->
+    <!-- 1. -->
+     <!-- <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, aliquid!
+     </p>
+
+     <button id="changepara" onclick="changepara()">change para</button>
+
+     <script>
+
+        function changepara(){
+            document.write("paragragh changed");
+            
+        }
+
+     </script> -->
+
+
+     <!-- 2. -->
+
+     <!-- <div id="skg" style="height: 10px ;width:20; background-color: red;" onmouseover=changecolor() >
+        
+     </div>
+     <br>
+
+
+     <script>
+        function changecolor(){
+       document.getElementById("skg").style.backgroundColor = "yellow";
+            
+        }
+     </script> -->
+
+     <!-- 3. -->
+     <h2>Press any key to see the result on the screen:</h2>
+    <div id="displayKey" style="font-size: 24px; font-weight: bold; color: green;"></div>
+
+    <script>
+        document.addEventListener('keydown', function(e) {
+            // Update the UI with the pressed key
+            document.getElementById('displayKey').textContent = `Key pressed: ${e.key}`;
+        });
+    </script>
+     
+    <!-- diff between push pop shift unshit
+    push() → Adds elements to the end.
+pop() → Removes elements from the end.
+unshift() → Adds elements to the beginning.
+shift() → Removes elements from the beginning. -->
+
+<!-- <script>
+    //push
+let arr1 = [1, 2, 3];
+arr1.push(4); // Adds 4 to the end of the array
+console.log(arr1); // Output: [1, 2, 3, 4]
+
+//pop
+let arr2 = [1, 2, 3, 4];
+let lastElement = arr2.pop(); // Removes 4 from the end of the array
+console.log(arr2); // Output: [1, 2, 3]
+console.log(lastElement); // Output: 4
+
+//unshift
+let arr3 = [1, 2, 3];
+arr3.unshift(0); // Adds 0 to the beginning of the array
+console.log(arr3); // Output: [0, 1, 2, 3]
+
+//shift
+let arr4 = [0, 1, 2, 3];
+let firstElement = arr4.shift(); // Removes 0 from the beginning of the array
+console.log(arr4); // Output: [1, 2, 3]
+console.log(firstElement); // Output: 0
+
+
+
+</script> -->
+
+
+
+     
+
+     
+
+
+
+
+</body>
+</html>

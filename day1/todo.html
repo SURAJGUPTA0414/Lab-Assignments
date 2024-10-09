@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+    <h3>Learn JavaScript</h3>
+    <input type="text" id="skg" placeholder="Add elements...">
+    <button onclick="addElement()">Add elements</button>
+    
+    <ol id="list"></ol>
+    
+    <script>
+
+    // add button
+    function addElement() {
+      var itemValue = document.getElementById("skg").value;
+      var li = document.createElement("li");
+      var span = document.createElement("span");
+      span.innerHTML = itemValue;
+    
+      //edit button
+      var editButton = document.createElement("button");
+      editButton.innerHTML = "Edit";
+      editButton.style.marginLeft = "10px";
+      editButton.onclick = function edit() {
+        var newValue = prompt("Edit item:", span.innerHTML);
+        if (newValue !== null && newValue.trim() !== "") {
+          span.innerHTML = newValue;
+        }
+      };
+    
+      // Delete button
+      var deleteButton = document.createElement("button");
+      deleteButton.innerHTML = "Delete";
+      deleteButton.style.marginLeft = "5px";
+      deleteButton.onclick = function deleteButton() {
+        li.remove(); 
+      }; 
+      
+      // Append the text, Edit button, and Delete button to the list item
+      li.appendChild(span);
+      li.appendChild(editButton);
+      li.appendChild(deleteButton);
+      
+      // Append the new list item to the ordered list
+      document.getElementById("list").appendChild(li);
+     
+      // Clear the input field after adding the item
+      document.getElementById("skg").value = "";
+    }
+    </script>
+
+   
+    
+   
+    
+    
+    
+  
+    
+    
+</body>
+</html>
