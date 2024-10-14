@@ -1,0 +1,62 @@
+/* Styling for the entire app */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* App Header */
+.app-header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  border: 2px solid black;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100vh - 140px); /* Adjust to fit the header and footer */
+  background-color: red;
+  box-sizing: border-box;
+}
+
+/* Hero About Section (Left Column) */
+.hero-about {
+  flex: 1; /* Take up equal width */
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+/* Hero Contact Section (Right Column) */
+.hero-contact {
+  flex: 1; /* Take up equal width */
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}

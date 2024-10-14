@@ -1,23 +1,24 @@
-// function Person(age,name){
-//     this.age = age;
-//     this.name = name;
+//example
+function Person(age,name){
+    this.age = age;
+    this.name = name;
 
-// }
+}
 
-// let Suraj = new Person(21,"person1");
-// console.log(Suraj);
+let Suraj = new Person(21,"person1");
+console.log(Suraj);
 
-// let Varsha = new Person(22,"person2");
-// console.log(Varsha);
+let Varsha = new Person(22,"person2");
+console.log(Varsha);
 
 
-// Person.prototype.city = "kalyan";
+Person.prototype.city = "kalyan";
 
-// Person.prototype.showData = function(){
-//     return this.name + ""+this.age;
-// }
-// console.log(Varsha.showData());
-// console.log(Varsha);
+Person.prototype.showData = function(){
+    return this.name + ""+this.age;
+}
+console.log(Varsha.showData());
+console.log(Varsha);
 
 
 
