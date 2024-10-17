@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const ProductCard = (props) => {
   const [products] = useState(props.productCardDetails);
