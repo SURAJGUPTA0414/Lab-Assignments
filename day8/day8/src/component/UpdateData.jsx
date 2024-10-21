@@ -2,15 +2,15 @@ import React from 'react';
 import { useMyContext } from '../MyProvider/MyProvider2';
 
 function UpdateData() {
-  const { setMessage } = useMyContext();
+  const { setdata } = useMyContext();
 
-  const updateMessage = () => {
-    setMessage('Data updated');
+  const updatedata = () => {
+    setdata('updating data');
   };
 
   return (
-    <button onClick={updateMessage}>
-      Update Message
+    <button onClick={updatedata}>
+      Update data
     </button>
   );
 }

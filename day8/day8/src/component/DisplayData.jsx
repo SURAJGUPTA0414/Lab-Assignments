@@ -2,11 +2,11 @@ import React from 'react';
 import { useMyContext } from '../MyProvider/MyProvider2';
 
 function DisplayData() {
-  const { message } = useMyContext();
+  const { data } = useMyContext();
 
   return (
     <div>
-      <h2>{message}</h2>
+      <h2>{data}</h2>
     </div>
   );
 }
