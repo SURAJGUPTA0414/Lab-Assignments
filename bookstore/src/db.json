@@ -1,0 +1,109 @@
+{
+  "authors": [
+    {
+      "id": "1",
+      "name": "George Orwell",
+      "birthdate": "1903-06-25",
+      "nationality": "British"
+    },
+    {
+      "id": "2",
+      "name": "J.K. Rowling",
+      "birthdate": "1965-07-31",
+      "nationality": "British"
+    }
+  ],
+  "publishers": [
+    {
+      "id": "1",
+      "name": "Secker & Warburg",
+      "address": "London, UK"
+    },
+    {
+      "id": "2",
+      "name": "Bloomsbury",
+      "address": "London, UK"
+    }
+  ],
+  "books": [
+    {
+      "title": "Thermodynamics",
+      "isbn": "9780451524935",
+      "authorId": 1,
+      "publisherId": 1,
+      "publishYear": 1949,
+      "copiesAvailable": 4,
+      "id": "1"
+    },
+    {
+      "title": "Harry Potter ",
+      "isbn": "9780747532699",
+      "authorId": 2,
+      "publisherId": 2,
+      "publishYear": 1997,
+      "copiesAvailable": 6,
+      "id": "2"
+    },
+    {
+      "title": "suraj",
+      "isbn": "gggg",
+      "authorId": "11",
+      "publisherId": "11",
+      "publishYear": "2017",
+      "copiesAvailable": "11",
+      "id": "0104"
+    },
+    {
+      "title": "suraj",
+      "isbn": "gggg",
+      "authorId": "11",
+      "publisherId": "11",
+      "publishYear": "2017",
+      "copiesAvailable": "11",
+      "id": "5d69"
+    }
+  ],
+  "staff": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "role": "Librarian",
+      "contactNumber": "555-1234"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "role": "Assistant Librarian",
+      "contactNumber": "555-5678"
+    }
+  ],
+  "borrowDetails": [
+    {
+      "id": "1",
+      "bookId": 1,
+      "borrowerId": 1,
+      "staffId": 2,
+      "borrowDate": "2024-10-01",
+      "returnDate": "2024-10-15",
+      "status": "Returned"
+    },
+    {
+      "id": "2",
+      "bookId": 2,
+      "borrowerId": 2,
+      "staffId": 1,
+      "borrowDate": "2024-10-05",
+      "returnDate": "2024-10-20",
+      "status": "Overdue"
+    }
+  ],
+  "penaltyLog": [
+    {
+      "id": "1",
+      "borrowDetailId": 2,
+      "penaltyAmount": 5,
+      "penaltyDate": "2024-10-21",
+      "paid": false
+    }
+  ]
+}
