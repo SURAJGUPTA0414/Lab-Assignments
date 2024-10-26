@@ -14,11 +14,16 @@
 
 
 import React from 'react';
+// import Button from 'react-bootstrap/Button';
 
 function Home() {
   return (
     <div className="container my-5">
+       {/* <Button className='btn  btn-danger'>Suraj</Button> */}
       {/* Hero Section */}
+
+
+
       <div className="jumbotron text-center bg-dark text-white p-5 rounded">
         <h1 className="display-4">Welcome to Our Travel Blog</h1>
         <p className="lead">Explore the best travel destinations, tips, and guides for your next adventure!</p>

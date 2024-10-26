@@ -1,108 +1,20 @@
-// import axios from 'axios'
-// import React, { useEffect } from 'react'
-
-// export default function AxiosDemo() {
-//     let url = "http://localhost:5000/products";
-//     const [products, setProducts] = React.useState([]);
-//     async function  handleProduct() {
-//         const resp=  await  axios.get(url);
-//         console.log(resp)
-//         setProducts(resp.data);
-//       }
-//     useEffect(() => {
-//         handleProduct();
-//         }, [])
-//   return (
-//     <div>
-//         <ul>
-//             {
-//                 products && products.map((p, index) => {
-//                     return <li key={index}>{p.title}---{p.category}--{p.image}</li>
-//             }
-//             )}
-//         </ul>
-        
-        
-//     </div>
-//   )
-// }
-
-
-
-// import axios from 'axios'
-// import React, { useEffect } from 'react'
- 
-// export default function AxiosDemo() {
-//     let url = "http://localhost:5000/products";
-//     const [products, setProducts] = React.useState([]);
- 
-//     async function  handleProduct() {
-//         const response=  await  axios.get(url);
-//         if (Array.isArray(response.data)) {
-//             const modifiedData = response.data.map(post => ({
-//               ...post,
-//               qty: 0,
-//             }));
-//             setProducts(modifiedData); // Set modified data
-//           }
-//         }
-     
-//     useEffect(() => {
-//         handleProduct();
-//         }, []);
-
-
-//         const AddNewUser = async () => {
-//             const newUser = {
-              
-//               "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-//               "price": 109.95,
-//               "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-//               "category": "men's clothing",
-//               "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-//               "rating": {
-//                 "rate": 3.9,
-//                 "count": 120
-//               }
-//         }
-//         const response = await axios.post(url, newUser);
-//         console.log(response);
-//         if(response.status === 201){
-//             handleProduct();
-//         }
-//       }
-       
-//   return (
-//     <div>
-//         <ul>
-//             {
-//                 products && products.map((p, index) => {
-//                     return  <li key={index}>
-//                         {p.title}---{p.price}
-//                     {/* <button onClick={() =>setProducts(p.qty+1)}>+</button> */}
-//                     </li>
-                   
-//             }
-//             )}
-//         </ul>
- 
-//         {/*button to add new user */}
-//         { <button onClick={AddNewUser}> Add new user</button>}
-//         { <button onClick={DeleteNewUser}> Delete new user</button>}
-       
-       
-//     </div>
-//   )
-// }
-
-
 
 // import axios from 'axios';
-// import React, { useEffect } from 'react';
+// import React, { useEffect, useState } from 'react';
+
+// import { Button, Form, Container, Row, Col, ListGroup } from 'react-bootstrap';
+
 
 // export default function AxiosDemo() {
-//   let url = "http://localhost:5000/products";
-//   const [products, setProducts] = React.useState([]);
+//   const url = "http://localhost:5000/products";
+//   const [products, setProducts] = useState([]);
+//   const [newProduct, setNewProduct] = useState({
+//     title: '',
+//     price: '',
+//     description: '',
+//     category: '',
+//     image: '',
+//   });
 
 //   async function handleProduct() {
 //     const response = await axios.get(url);
@@ -119,62 +31,113 @@
 //     handleProduct();
 //   }, []);
 
-//   const AddNewUser = async () => {
-//     const newUser = {
-//       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-//       "price": 109.95,
-//       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-//       "category": "men's clothing",
-//       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-//       "rating": {
-//         "rate": 3.9,
-//         "count": 120
-//       }
-//     };
-//     const response = await axios.post(url, newUser);
-//     console.log(response);
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     setNewProduct({
+//       ...newProduct,
+//       [name]: value
+//     });
+//   };
+
+//   const AddNewUser = async (e) => {
+//     e.preventDefault(); // Prevent page refresh
+//     const response = await axios.post(url, newProduct);
 //     if (response.status === 201) {
-//       handleProduct();
+//       handleProduct(); // Refresh product list after adding
+//       setNewProduct({ title: '', price: '', description: '', category: '', image: '' }); // Clear form fields
 //     }
 //   };
 
 //   const DeleteNewUser = async (id) => {
 //     const response = await axios.delete(`${url}/${id}`);
-//     console.log(response);
 //     if (response.status === 200) {
 //       handleProduct(); // Refresh the product list after deletion
 //     }
 //   };
 
 //   return (
-//     <div>
-//       <ul>
+//     <div className="mt-4">
+//       <h2 className="text-center mb-4">Product List</h2>
+//       <ListGroup>
 //         {
-//           products && products.map((p, index) => {
-//             return (
-//               <li key={index}>
-//                 {p.title} --- {p.price}
-//                 {/* Add a button to delete the product */}
-//                 <button onClick={() => DeleteNewUser(p.id)}>Delete</button>
-//               </li>
-//             );
-//           })
+//           products.map((p, index) => (
+//             <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
+//               <span>{p.title} --- ${p.price}</span>
+//               <Button variant="danger" onClick={() => DeleteNewUser(p.id)}>Delete</Button>
+//             </ListGroup.Item>
+//           ))
 //         }
-//       </ul>
+//       </ListGroup>
 
-//       {/* Button to add a new user */}
-//       <button onClick={AddNewUser}>Add new user</button>
+//       <h2 className="text-center mt-4">Add New Product</h2>
+//       <Form onSubmit={AddNewUser} className="p-4 border rounded bg-light">
+//         <Row className="mb-3">
+//           <Col>
+//             <Form.Control
+//               type="text"
+//               name="title"
+//               placeholder="Title"
+//               value={newProduct.title}
+//               onChange={handleInputChange}
+//               required
+//             />
+//           </Col>
+//           <Col>
+//             <Form.Control
+//               type="number"
+//               name="price"
+//               placeholder="Price"
+//               value={newProduct.price}
+//               onChange={handleInputChange}
+//               required
+//             />
+//           </Col>
+//         </Row>
+//         <Form.Group className="mb-3">
+//           <Form.Control
+//             type="text"
+//             name="description"
+//             placeholder="Description"
+//             value={newProduct.description}
+//             onChange={handleInputChange}
+//             required
+//           />
+//         </Form.Group>
+//         <Row className="mb-3">
+//           <Col>
+//             <Form.Control
+//               type="text"
+//               name="category"
+//               placeholder="Category"
+//               value={newProduct.category}
+//               onChange={handleInputChange}
+//               required
+//             />
+//           </Col>
+//           <Col>
+//             <Form.Control
+//               type="text"
+//               name="image"
+//               placeholder="Image URL"
+//               value={newProduct.image}
+//               onChange={handleInputChange}
+//               required
+//             />
+//           </Col>
+//         </Row>
+//         <Button variant="primary" type="submit" className="w-100">Add Product</Button>
+//       </Form>
 //     </div>
 //   );
 // }
 
 
-
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Button, Form, Row, Col, ListGroup } from 'react-bootstrap';
 
 export default function AxiosDemo() {
-  let url = "http://localhost:5000/products";
+  const url = "http://localhost:5000/products";
   const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState({
     title: '',
@@ -183,6 +146,8 @@ export default function AxiosDemo() {
     category: '',
     image: '',
   });
+  const [editingProduct, setEditingProduct] = useState(null);
+  const [showProductList, setShowProductList] = useState(false);
 
   async function handleProduct() {
     const response = await axios.get(url);
@@ -191,7 +156,7 @@ export default function AxiosDemo() {
         ...post,
         qty: 0,
       }));
-      setProducts(modifiedData); // Set modified data
+      setProducts(modifiedData);
     }
   }
 
@@ -208,84 +173,126 @@ export default function AxiosDemo() {
   };
 
   const AddNewUser = async (e) => {
-    e.preventDefault(); // Prevent page refresh
-    const response = await axios.post(url, newProduct);
-    console.log(response);
-    if (response.status === 201) {
-      handleProduct(); // Refresh product list after adding
-      setNewProduct({ title: '', price: '', description: '', category: '', image: '' }); // Clear form fields
+    e.preventDefault();
+    if (editingProduct) {
+      await UpdateProduct(editingProduct.id);
+    } else {
+      const response = await axios.post(url, newProduct);
+      if (response.status === 201) {
+        handleProduct();
+        setNewProduct({ title: '', price: '', description: '', category: '', image: '' });
+      }
     }
   };
 
   const DeleteNewUser = async (id) => {
     const response = await axios.delete(`${url}/${id}`);
-    console.log(response);
     if (response.status === 200) {
-      handleProduct(); // Refresh the product list after deletion
+      handleProduct();
     }
   };
 
-  return (
-    <div>
-      <h2>Product List</h2>
-      <ul>
-        {
-          products && products.map((p, index) => {
-            return (
-              <li key={index}>
-                {p.title} --- {p.price}
-                {/* Add a button to delete the product */}
-                <button onClick={() => DeleteNewUser(p.id)}>Delete</button>
-              </li>
-            );
-          })
-        }
-      </ul>
+  const UpdateProduct = async (id) => {
+    const response = await axios.put(`${url}/${id}`, newProduct);
+    if (response.status === 200) {
+      handleProduct();
+      setEditingProduct(null);
+      setNewProduct({ title: '', price: '', description: '', category: '', image: '' });
+    }
+  };
 
-      <h2>Add New Product</h2>
-      <form onSubmit={AddNewUser}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={newProduct.title}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="Price"
-          value={newProduct.price}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="Description"
-          value={newProduct.description}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="text"
-          name="category"
-          placeholder="Category"
-          value={newProduct.category}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={newProduct.image}
-          onChange={handleInputChange}
-          required
-        />
-        <button type="submit">Add Product</button>
-      </form>
+  const handleEditClick = (product) => {
+    setEditingProduct(product);
+    setNewProduct(product);
+  };
+
+  return (
+    <div className="mt-4">
+      <h2 className="text-center mt-4">{editingProduct ? "Edit Product" : "Add New Product"}</h2>
+      <Form onSubmit={AddNewUser} className="p-4 border rounded bg-light">
+        <Row className="mb-3">
+          <Col>
+            <Form.Control
+              type="text"
+              name="title"
+              placeholder="Title"
+              value={newProduct.title}
+              onChange={handleInputChange}
+              required
+            />
+          </Col>
+          <Col>
+            <Form.Control
+              type="number"
+              name="price"
+              placeholder="Price"
+              value={newProduct.price}
+              onChange={handleInputChange}
+              required
+            />
+          </Col>
+        </Row>
+        <Form.Group className="mb-3">
+          <Form.Control
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={newProduct.description}
+            onChange={handleInputChange}
+            required
+          />
+        </Form.Group>
+        <Row className="mb-3">
+          <Col>
+            <Form.Control
+              type="text"
+              name="category"
+              placeholder="Category"
+              value={newProduct.category}
+              onChange={handleInputChange}
+              required
+            />
+          </Col>
+          <Col>
+            <Form.Control
+              type="text"
+              name="image"
+              placeholder="Image URL"
+              value={newProduct.image}
+              onChange={handleInputChange}
+              required
+            />
+          </Col>
+        </Row>
+        <Button variant="primary" type="submit" className="w-100">
+          {editingProduct ? "Update Product" : "Add Product"}
+        </Button>
+      </Form>
+
+      <div className="text-center mt-4">
+        <Button variant="secondary" onClick={() => setShowProductList(!showProductList)}>
+          {showProductList ? "Hide Product date" : "Show product data"}
+        </Button>
+      </div>
+
+      {showProductList && (
+        <div className="mt-4">
+          <h2 className="text-center mb-4">Product List</h2>
+          <ListGroup>
+            {
+              products.map((p, index) => (
+                <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
+                  <span>{p.title} --- ${p.price}</span>
+                  <div>
+                    <Button variant="warning" className="me-2" onClick={() => handleEditClick(p)}>Update</Button>
+                    <Button variant="danger" onClick={() => DeleteNewUser(p.id)}>Delete</Button>
+                  </div>
+                </ListGroup.Item>
+              ))
+            }
+          </ListGroup>
+        </div>
+      )}
     </div>
   );
 }

@@ -96,10 +96,16 @@
 // export default Navbar;
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap CSS
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Navbar() {
+    const navigate = useNavigate();
+
+    const HandlKeyPress = (e) => {
+        if(e.key === 'Enter'){
+            navigate(e.target.value);
+        }
+    }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -117,8 +123,14 @@ function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+        <input type="text" placeholder='Enter Page name to navigate' onKeyDown={HandlKeyPress} />
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+           
+          {/* <li className="nav-item">
+              <NavLink className="nav-link" to="/login">Login</NavLink>
+            </li> */}
+
             <li className="nav-item">
               <NavLink className="nav-link" to="/">Home</NavLink>
             </li>
@@ -145,4 +157,6 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
 

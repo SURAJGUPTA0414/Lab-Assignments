@@ -6,7 +6,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 export default function BookStore() {
-  let url = "http://localhost:5000/products";
+  let url = "http://localhost:5000/books";
   const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState({
     title: '',

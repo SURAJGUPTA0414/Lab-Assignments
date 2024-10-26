@@ -13,7 +13,6 @@
 
 import React from 'react';
 
-
 function Travel() {
   return (
     <div className="container mt-5">
