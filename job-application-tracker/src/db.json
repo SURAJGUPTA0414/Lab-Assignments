@@ -1,0 +1,55 @@
+{
+  "Jobapplication": [
+    {
+      "id": "1",
+      "company": "Capgemini",
+      "position": "Software Engineer",
+      "ctc": "10 LPA",
+      "date": "2024-10-28",
+      "status": "Applied",
+      "location": "Mumbai",
+      "jobType": "Full-time",
+      "notes": "Completed initial coding assessment"
+    },
+    {
+      "id": "2",
+      "company": "TCS",
+      "position": "Frontend Developer",
+      "ctc": "8 LPA",
+      "date": "2024-10-20",
+      "status": "Interview Scheduled",
+      "location": "Bangalore",
+      "jobType": "Full-time",
+      "notes": "Prepare for technical round on React"
+    },
+    {
+      "id": "3",
+      "company": "Infosys",
+      "position": "Data Analyst",
+      "ctc": "12 LPA",
+      "date": "2024-10-15",
+      "status": "Rejected",
+      "location": "Hyderabad",
+      "jobType": "Full-time",
+      "notes": "Received feedback on interview"
+    },
+    {
+      "id": "d137",
+      "company": "NSEIT",
+      "position": "web developer",
+      "ctc": "10 lpa",
+      "date": "2024-10-24",
+      "status": "applied",
+      "location": "mumbai"
+    },
+    {
+      "id": "b11f",
+      "company": "accenture tech ss",
+      "position": "ASE",
+      "ctc": "10LPA",
+      "date": "2022-10-10",
+      "status": "shortlisted",
+      "location": "pune"
+    }
+  ]
+}

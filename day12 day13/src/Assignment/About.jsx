@@ -1,16 +1,3 @@
-// import React from 'react'
-
-// function About() {
-//   return (
-//     <div>
-//         <h1>About</h1>
-      
-//     </div>
-//   )
-// }
-
-// export default About
-
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap CSS

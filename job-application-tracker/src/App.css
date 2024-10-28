@@ -1,0 +1,39 @@
+/* src/App.css */
+
+/* .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  flex-shrink: 0;
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+} */
+
+
+/* src/App.css */
+
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+

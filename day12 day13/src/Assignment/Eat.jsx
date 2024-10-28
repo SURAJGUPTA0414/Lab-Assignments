@@ -1,15 +1,3 @@
-// import React from 'react'
-
-// function Eat() {
-//   return (
-//     <div>
-//       <h1>Eat</h1>
-//     </div>
-//   )
-// }
-
-// export default Eat
-
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap CSS

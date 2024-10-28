@@ -1,16 +1,3 @@
-// import React from 'react'
-
-// function Error() {
-//   return (
-//     <div>
-//       <h1>Error loading page</h1>
-//     </div>
-//   )
-// }
-
-// export default Error
-
-
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
