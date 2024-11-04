@@ -27,7 +27,7 @@
 //         function multiply(){
 //             console.log('inside memo');
 //             return(x*20);
-            
+
 //         }
 //     );
 // ;  return (
@@ -41,7 +41,7 @@
 //         <h1>Vaue of y is :{y}</h1>
 //         <button onClick={() => setY(y-1)}>Subtract</button>
 //         <MyChild y={y} />
-      
+
 //     </div>
 //   )
 // }
@@ -83,55 +83,75 @@
 // }
 
 
- //day17 higher order
-
-import { useState } from 'react'
+//day17 higher order
 
 
-function HOCRed(props){
-  return <div style={{background:'red'}}>
+
+import { useState } from "react";
+
+function HOCRed(props) {
+  return <div style={{ background: 'red' }}>
     <h1>This is red</h1>
     <props.cmp />
-    
+    <props.imp />
+
   </div>
 }
 
-function HOCGreen(props){
-  return <div style={{background:'green'}}>
+function HOCGreen(props) {
+  return <div style={{ background: 'green' }}>
     <h1>This is green</h1>
     <props.cmp />
-    
+    <props.imp />
+
   </div>
 }
 
-function HOCBlue(props){
-  return <div style={{background:'blue'}}>
+function HOCBlue(props) {
+  return <div style={{ background: 'blue' }}>
     <h1>This is Blue</h1>
     <props.cmp />
-    
+    <props.imp />
+
   </div>
 }
 
-function Counter(){
-  const [count,setCount] =useState(0);
-  return(
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
     <div>
       <h1>{count}</h1>
-      <button onClick={() => setCount(count+1)}>increment</button>
+      <button onClick={() => setCount(count + 1)}>increment</button>
     </div>
   );
 }
 
+function ColorChange() {
+  const [color, setColor] = useState('white');
 
-function App() {
-  
+  const darkLight = () => {
+    setColor((prevColor) => (  prevColor === 'black' ? 'white' : 'black'  ));
+  };
+
+
   return (
     <div>
-      <button on> change theme : </button>
-      <HOCRed cmp={Counter}/>
-      <HOCGreen cmp={Counter}/>
-      <HOCBlue cmp={Counter}/>
-      
+      <h1 style={{ background: color, color: color === 'black' ? 'white' : 'black' , height:'150px' }}> !!!suraj!!!  </h1>
+      <button onClick={darkLight}>Apply color: {color === 'white' ? 'Switch to dark' : 'Switch to light'} </button>
+
+    </div>
+  );
+}
+
+function App() {
+
+  return (
+    <div>
+
+      <HOCRed cmp={Counter} imp={ColorChange} />
+      <HOCGreen cmp={Counter} imp={ColorChange} />
+      <HOCBlue cmp={Counter} imp={ColorChange} />
+
     </div>
   )
 }
